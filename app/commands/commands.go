@@ -1,6 +1,7 @@
 package commands
 
 import (
+	"codecosta.com/hackclaw/app/models"
 	"codecosta.com/hackclaw/app/utils"
 	"github.com/bwmarrin/discordgo"
 )
@@ -14,7 +15,13 @@ var CommandList = []*discordgo.ApplicationCommand{
 				Name:        "map",
 				Description: "Map Name",
 				Type:        discordgo.ApplicationCommandOptionString,
-				Required:    true,
+				Choices: []*discordgo.ApplicationCommandOptionChoice{
+					{
+						Name:  string(models.ZERO_DAM),
+						Value: models.ZERO_DAM,
+					},
+				},
+				Required: true,
 			},
 		},
 	},
